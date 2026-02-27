@@ -10,19 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Deploy to Linux Server
-      uses: appleboy/ssh-action@v0.1.10
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        script: |
-          cd /root/AIRAVAT
-          git pull origin main
-          npm install
-          npm run build
-          pm2 restart airavat-app || pm2 start index.js --name "airavat-app"
-          pm2 save
+      - name: Deploy to Linux Server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: root
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
+          script: |
+            cd /root/AIRAVAT
+            git pull origin main
+            npm install
+            npm run build
+            pm2 restart airavat-app || pm2 start index.js --name airavat-app
+            pm2 save
