@@ -23,7 +23,16 @@ jobs:
           script: |
             cd /root/AIRAVAT
             git pull origin main
+
+            # Install dependencies
             npm install
-            npm run build
-            pm2 restart airavat-app || pm2 start index.js --name airavat-app
+
+            # Restart cleanly
+            pm2 stop airavat-app || true
+            pm2 delete airavat-app || true
+
+            # Start using npm start (from package.json)
+            pm2 start npm --name "airavat-app" -- start
+
+            # Save process list
             pm2 save
