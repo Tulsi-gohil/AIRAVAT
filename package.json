@@ -1,0 +1,21 @@
+{
+  "name": "airavat-main",
+  "version": "1.0.0",
+  "description": "<p align=\"center\"> <img src='WEB PANEL/img/logo.png' style=\"height:100px;width:100px;\" > </p> <h1 align=center>AIRAVAT</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tulsi-gohil/AIRAVAT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Tulsi-gohil/AIRAVAT/issues"
+  },
+  "homepage": "https://github.com/Tulsi-gohil/AIRAVAT#readme"
+}
